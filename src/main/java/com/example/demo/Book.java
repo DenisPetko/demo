@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import java.util.Objects;
+
 public class Book {
     private String title;
     private Author nameAuthor;
@@ -27,4 +29,20 @@ public class Book {
         this.publicationDate = publicationDate;
     }
 
+    @Override
+    public String toString() {
+        return "Название: " + title + "; Автор: " + nameAuthor + "; Год публикации: " + publicationDate;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (getClass() != object.getClass()) return false;
+        Book book = (Book) object;
+        return publicationDate == book.publicationDate && title.equals(book.title) && nameAuthor.equals(book.nameAuthor);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, nameAuthor, publicationDate);
+    }
 }

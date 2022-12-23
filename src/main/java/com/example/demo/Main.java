@@ -18,6 +18,9 @@ public class Main {
         System.out.println("book1.getPublicationDate() = " + book1.getPublicationDate());
         book1.setPublicationDate(1967);
         System.out.println("book1.getPublicationDate() = " + book1.getPublicationDate());
+        System.out.println(book);
+        System.out.println(author.equals(author1));
+        System.out.println(book.equals(book1));
 
     }
 }
