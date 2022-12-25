@@ -3,8 +3,8 @@ package com.example.demo;
 import java.util.Objects;
 
 public class Book {
-    private String title;
-    private Author nameAuthor;
+    private final String title;
+    private final Author nameAuthor;
     private int publicationDate;
 
     public Book(String title, Author nameAuthor, int publicationDate) {
@@ -35,10 +35,11 @@ public class Book {
     }
 
     @Override
-    public boolean equals(Object object) {
-        if (getClass() != object.getClass()) return false;
-        Book book = (Book) object;
-        return publicationDate == book.publicationDate && title.equals(book.title) && nameAuthor.equals(book.nameAuthor);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return publicationDate == book.publicationDate && Objects.equals(title, book.title) && Objects.equals(nameAuthor, book.nameAuthor);
     }
 
     @Override
